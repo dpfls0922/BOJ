@@ -1,0 +1,53 @@
+자바에서 입력방식은 scanner와 bufferedreader가 있다.
+
+1. scanner
+
+- java.util.Scanner 클래스
+
+- 데이터 형을 받기 편하다.(문자열로 받는건 같지만 입력하면서 바로 형변환이 일어난다.)
+
+- 입력값의 경계로 공백, 엔터 모두 인식이 가능하다.
+
+- IOException을 숨긴다.
+
+- 동기화 되지 않는다.
+
+- buffer 사이즈 1024
+
+2. bufferedreader
+
+- Java.io.BufferedReader 클래스
+
+- 데이터가 문자열로 먼저 저장되기 때문에 형변환 필수
+
+- 입력값이 엔터만 인식하기때문에 한 라인에 여러가지 입력하고 싶으면 stringtokenize 필수
+  (stringtokenize없이 입력하면 공백을 문자열로 인식)
+
+- IOException을 던져야 한다.(throws) 
+
+- 입력과 동시에 동기화 된다.
+
+- buffer 사이즈 8192
+
+
+
+
+
+scanner가 bufferedreader보다 편하지만 속도가 느리다.
+
+왜 bufferedreader가 빠를까?
+
+
+bufferedreader는 기존의 inputstreamreader에 버퍼링이 추가된 class이다.
+
+기존의 inputstreamreader는 문자열을 한글자씩 읽어왔었지만 여기에 buffer를 추가하므로써 문자열을 한번에 저장하고 필요할 때 꺼내 올 수 있게 되었다.
+
+읽을면서 출력해야하는 것보단 일단 저장하고 필요할때 출력만 하면 되기 때문에 속도가 빨라지고 부하가 적다.
+
+하지만 bufferedreader는 무조건 문자열로 받아오기때문에 정수형이나 실수형 변수에 저장하기 위해서는 입력과 형변환을 해줘야한다.
+
+
+
+
+
+long 형의 최대값을 계산해서 더 큰 값을 만들어 질 수 있기에 BigInteger을 사용한다.
