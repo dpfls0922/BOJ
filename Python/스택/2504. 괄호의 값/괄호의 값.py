@@ -35,7 +35,7 @@ if valid:
         else:
             valid = False
             break
-    print(result)
+    print(result if valid else 0)
 else:
     print(0)
 
